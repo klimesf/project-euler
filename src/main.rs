@@ -3,10 +3,12 @@ use colored::Colorize;
 use crate::e1::e1;
 use crate::e2::e2;
 use crate::e3::e3;
+use crate::e4::e4;
 
 mod e1;
 mod e2;
 mod e3;
+mod e4;
 
 mod utils { pub mod toolbox; }
 
@@ -29,5 +31,10 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e3".to_string()) {
         println!("{}", format!("--- 3:").underline().green());
         measure!(e3());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e4".to_string()) {
+        println!("{}", format!("--- 4:").underline().green());
+        measure!(e4());
     }
 }
