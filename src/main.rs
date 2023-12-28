@@ -8,6 +8,7 @@ use crate::e5::e5;
 use crate::e6::e6;
 use crate::e7::e7;
 use crate::e8::e8;
+use crate::e9::e9;
 
 mod e1;
 mod e2;
@@ -17,6 +18,7 @@ mod e5;
 mod e6;
 mod e7;
 mod e8;
+mod e9;
 
 mod utils { pub mod toolbox; }
 
@@ -64,5 +66,10 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e8".to_string()) {
         println!("{}", format!("--- 8:").underline().green());
         measure!(e8());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e9".to_string()) {
+        println!("{}", format!("--- 9:").underline().green());
+        measure!(e9());
     }
 }
