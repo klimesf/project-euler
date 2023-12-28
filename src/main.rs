@@ -1,8 +1,10 @@
 use std::env;
 use colored::Colorize;
 use crate::e1::e1;
+use crate::e2::e2;
 
 mod e1;
+mod e2;
 
 mod utils { pub mod toolbox; }
 
@@ -15,5 +17,10 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e0001".to_string()) {
         println!("{}", format!("--- 1:").underline().green());
         measure!(e1());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e0002".to_string()) {
+        println!("{}", format!("--- 2:").underline().green());
+        measure!(e2());
     }
 }

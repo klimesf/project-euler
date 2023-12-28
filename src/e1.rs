@@ -13,7 +13,7 @@ fn multiples_3_5(below: usize) -> usize {
 }
 
 #[cfg(test)]
-mod day21_tests {
+mod e1_tests {
     use crate::e1::{multiples_3_5};
 
     #[test]
