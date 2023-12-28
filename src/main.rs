@@ -2,9 +2,11 @@ use std::env;
 use colored::Colorize;
 use crate::e1::e1;
 use crate::e2::e2;
+use crate::e3::e3;
 
 mod e1;
 mod e2;
+mod e3;
 
 mod utils { pub mod toolbox; }
 
@@ -14,13 +16,18 @@ fn main() {
     println!("{}", format!("Project Euler").red());
     println!();
 
-    if args.contains(&"all".to_string()) || args.contains(&"e0001".to_string()) {
+    if args.contains(&"all".to_string()) || args.contains(&"e1".to_string()) {
         println!("{}", format!("--- 1:").underline().green());
         measure!(e1());
     }
 
-    if args.contains(&"all".to_string()) || args.contains(&"e0002".to_string()) {
+    if args.contains(&"all".to_string()) || args.contains(&"e2".to_string()) {
         println!("{}", format!("--- 2:").underline().green());
         measure!(e2());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e3".to_string()) {
+        println!("{}", format!("--- 3:").underline().green());
+        measure!(e3());
     }
 }
