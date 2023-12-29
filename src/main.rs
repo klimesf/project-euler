@@ -14,6 +14,7 @@ use crate::e11::e11;
 use crate::e12::e12;
 use crate::e13::e13;
 use crate::e14::e14;
+use crate::e15::e15;
 // use crate::e858::e858;
 
 mod e1;
@@ -30,6 +31,7 @@ mod e11;
 mod e12;
 mod e13;
 mod e14;
+mod e15;
 mod e858;
 
 mod utils { pub mod toolbox; }
@@ -108,6 +110,11 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e14".to_string()) {
         println!("{}", format!("--- 14:").underline().green());
         measure!(e14());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e15".to_string()) {
+        println!("{}", format!("--- 15:").underline().green());
+        measure!(e15());
     }
 
     // if args.contains(&"all".to_string()) || args.contains(&"e858".to_string()) {
