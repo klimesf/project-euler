@@ -18,6 +18,7 @@ use crate::e15::e15;
 use crate::e16::e16;
 use crate::e17::e17;
 use crate::e18::e18;
+use crate::e19::e19;
 use crate::e20::e20;
 use crate::e21::e21;
 use crate::e22::e22;
@@ -44,6 +45,7 @@ mod e15;
 mod e16;
 mod e17;
 mod e18;
+mod e19;
 mod e20;
 mod e21;
 mod e22;
@@ -148,6 +150,11 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e18".to_string()) {
         println!("{}", format!("--- 18:").underline().green());
         measure!(e18());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e19".to_string()) {
+        println!("{}", format!("--- 19:").underline().green());
+        measure!(e19());
     }
 
     if args.contains(&"all".to_string()) || args.contains(&"e20".to_string()) {
