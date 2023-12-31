@@ -1,23 +1,14 @@
+use crate::utils::toolbox::sieve_of_eratosthenes;
+
 pub(crate) fn e10() {
     println!("{}", calc(2000000))
 }
 
 fn calc(n: usize) -> usize {
-    let mut sieve = vec!{ true; n + 1 };
-
+    let sieve = sieve_of_eratosthenes(n);
     let mut ans = 0;
-    for i in 2..=(n as f64).sqrt() as usize {
-        if sieve[i] {
-            ans += i;
-            for j in (i.pow(2)..=n).step_by(i) {
-                sieve[j] = false;
-            }
-        }
-    }
-    for i in (n as f64).sqrt() as usize + 1..=n {
-        if sieve[i] {
-            ans += i;
-        }
+    for i in 2..=n {
+        if sieve[i] { ans += i }
     }
     ans
 }
