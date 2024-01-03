@@ -89,6 +89,8 @@ pub(crate) fn prime_factors(mut n: u32) -> Vec<u32> {
 #[allow(dead_code)]
 pub(crate) fn sieve_of_eratosthenes(n: usize) -> Vec<bool> {
     let mut sieve = vec!{ true; n + 1 };
+    sieve[0] = false;
+    sieve[1] = false;
     for i in 2..=(n as f64).sqrt() as usize {
         if sieve[i] {
             for j in (i.pow(2)..=n).step_by(i) {
