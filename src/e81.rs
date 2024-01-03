@@ -1,5 +1,5 @@
 use std::cmp::Ordering;
-use std::collections::BinaryHeap;
+use std::collections::{BinaryHeap, HashSet};
 use std::fs;
 
 pub(crate) fn e81() {
@@ -12,6 +12,7 @@ fn path_sum(input: String) -> usize {
     }).collect();
 
     let mut stack = BinaryHeap::new();
+    let mut visited = HashSet::new();
     stack.push(Pos { r: 0, c: 0, sum: 0 });
 
     let mut min = usize::MAX;
@@ -20,6 +21,9 @@ fn path_sum(input: String) -> usize {
         if (pos.r, pos.c) == (matrix.len() - 1, matrix[0].len() - 1) {
             min = min.min(total);
             break;
+        }
+        if !visited.insert((pos.r, pos.c)) {
+            continue;
         }
 
         if pos.r < matrix.len() - 1 {
@@ -32,7 +36,7 @@ fn path_sum(input: String) -> usize {
     min
 }
 
-#[derive(Copy, Clone, Eq, PartialEq)]
+#[derive(Copy, Clone, Eq, PartialEq, Debug)]
 struct Pos {
     r: usize,
     c: usize,
@@ -59,5 +63,6 @@ mod e81_tests {
     #[test]
     fn path_sum_works() {
         assert_eq!(2427, path_sum(fs::read_to_string("input/e81/test.txt").unwrap()));
+        assert_eq!(427337, path_sum(fs::read_to_string("input/e81/matrix.txt").unwrap()));
     }
 }
