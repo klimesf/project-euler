@@ -44,6 +44,7 @@ use crate::e42::e42;
 use crate::e43::e43;
 use crate::e44::e44;
 use crate::e45::e45;
+use crate::e47::e47;
 use crate::e67::e67;
 use crate::e81::e81;
 use crate::e82::e82;
@@ -94,6 +95,7 @@ mod e42;
 mod e43;
 mod e44;
 mod e45;
+mod e47;
 mod e67;
 mod e81;
 mod e82;
@@ -326,6 +328,11 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e45".to_string()) {
         println!("{}", format!("--- 45:").underline().green());
         measure!(e45());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e47".to_string()) {
+        println!("{}", format!("--- 47:").underline().green());
+        measure!(e47());
     }
 
     if args.contains(&"all".to_string()) || args.contains(&"e67".to_string()) {

@@ -67,6 +67,8 @@ pub(crate) fn parse_char(g: Option<Match>) -> char {
 
 #[allow(dead_code)]
 pub(crate) fn prime_factors(mut n: u32) -> Vec<u32> {
+    if n == 0 { return vec!() }
+
     let mut ans = vec!();
     while n % 2 == 0 {
         ans.push(2);
@@ -125,6 +127,8 @@ mod toolbox_tests {
 
     #[test]
     fn prime_factors_works() {
+        assert_eq!(Vec::<u32>::new(), prime_factors(0));
+        assert_eq!(Vec::<u32>::new(), prime_factors(1));
         assert_eq!(vec! {2}, prime_factors(2));
         assert_eq!(vec! {3}, prime_factors(3));
         assert_eq!(vec! {2, 2}, prime_factors(4));
