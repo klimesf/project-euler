@@ -1,4 +1,5 @@
 use core::mem;
+use itertools::Itertools;
 use regex::Match;
 
 #[allow(dead_code)]
@@ -104,6 +105,13 @@ pub(crate) fn sieve_of_eratosthenes(n: usize) -> Vec<bool> {
 }
 
 #[allow(dead_code)]
+pub(crate) fn is_pandigital(n: usize) -> bool {
+    let digs: Vec<char> = format!("{}", n).chars().collect();
+    let digs_cnt = digs.iter().counts_by(|c| c.to_digit(10).unwrap() as usize);
+    (1..=digs.len()).all(|i| *digs_cnt.get(&i).unwrap_or(&0) == 1)
+}
+
+#[allow(dead_code)]
 pub(crate) fn power_big(n: usize, exponential: usize) -> String {
     let mut ans = vec!{ 1 };
     for _ in 0..exponential {
@@ -151,7 +159,16 @@ macro_rules! measure {
 
 #[cfg(test)]
 mod toolbox_tests {
-    use crate::utils::toolbox::{power_big, prime_factors};
+    use crate::utils::toolbox::{is_pandigital, power_big, prime_factors};
+
+    #[test]
+    fn is_pandigital_works() {
+        assert_eq!(true, is_pandigital(123456789));
+        assert_eq!(false, is_pandigital(12345679));
+        assert_eq!(true, is_pandigital(2143));
+        assert_eq!(false, is_pandigital(2144));
+        assert_eq!(false, is_pandigital(2145));
+    }
 
     #[test]
     fn power_big_works() {
