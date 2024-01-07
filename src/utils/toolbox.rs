@@ -103,6 +103,34 @@ pub(crate) fn sieve_of_eratosthenes(n: usize) -> Vec<bool> {
     sieve
 }
 
+#[allow(dead_code)]
+pub(crate) fn power_big(n: usize, exponential: usize) -> String {
+    let mut ans = vec!{ 1 };
+    for _ in 0..exponential {
+        let mut new_ans = vec!();
+        let mut carryover = 0;
+        for i in (0..ans.len()).rev() {
+            let dig = ans[i] * n + carryover;
+            new_ans.push(dig % 10);
+            carryover = dig / 10;
+        }
+
+        while carryover > 0 {
+            new_ans.push(carryover % 10);
+            carryover /= 10;
+        }
+
+        new_ans.reverse();
+        ans = new_ans;
+    }
+
+    let mut out = String::new();
+    for i in 0..ans.len() {
+        out.push_str(format!("{}", ans[i] % 10).as_str());
+    }
+    out
+}
+
 #[macro_export]
 macro_rules! hashmap {
     ($( $key: expr => $val: expr ),*) => {{
@@ -123,7 +151,16 @@ macro_rules! measure {
 
 #[cfg(test)]
 mod toolbox_tests {
-    use crate::utils::toolbox::prime_factors;
+    use crate::utils::toolbox::{power_big, prime_factors};
+
+    #[test]
+    fn power_big_works() {
+        assert_eq!("1", power_big(1, 0));
+        assert_eq!("2", power_big(2, 1));
+        assert_eq!("4", power_big(2, 2));
+        assert_eq!("25", power_big(5, 2));
+        assert_eq!("125", power_big(5, 3));
+    }
 
     #[test]
     fn prime_factors_works() {
