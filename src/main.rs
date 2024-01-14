@@ -56,6 +56,7 @@ use crate::e67::e67;
 use crate::e81::e81;
 use crate::e82::e82;
 use crate::e83::e83;
+use crate::e96::e96;
 // use crate::e858::e858;
 
 mod e1;
@@ -114,6 +115,7 @@ mod e67;
 mod e81;
 mod e82;
 mod e83;
+mod e96;
 mod e858;
 
 mod utils { pub mod toolbox; }
@@ -402,6 +404,11 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e83".to_string()) {
         println!("{}", format!("--- 83:").underline().green());
         measure!(e83());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e96".to_string()) {
+        println!("{}", format!("--- 96:").underline().green());
+        measure!(e96());
     }
 
     // if args.contains(&"all".to_string()) || args.contains(&"e858".to_string()) {
