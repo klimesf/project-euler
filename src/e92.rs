@@ -1,3 +1,5 @@
+use memoize::memoize;
+
 pub(crate) fn e92() {
     println!("{}", calc())
 }
@@ -11,17 +13,18 @@ fn calc() -> usize {
     ans
 }
 
-fn chain(mut n: usize) -> usize {
-    while n != 1 && n != 89 {
-        let mut new_n = 0;
-        let mut rem = n;
-        while rem > 0 {
-            new_n += (rem % 10) * (rem % 10);
-            rem /= 10;
-        }
-        n = new_n;
+#[memoize]
+fn chain(n: usize) -> usize {
+    if n == 1 || n == 89 { return n }
+
+    let mut new_n = 0;
+    let mut rem = n;
+    while rem > 0 {
+        new_n += (rem % 10) * (rem % 10);
+        rem /= 10;
     }
-    n
+
+    chain(new_n)
 }
 
 #[cfg(test)]
