@@ -1,5 +1,5 @@
-use std::collections::VecDeque;
 use num_integer::binomial;
+use std::collections::VecDeque;
 
 pub(crate) fn e15() {
     println!("{}", lattice_paths_combinatorial(20))
@@ -11,7 +11,7 @@ fn lattice_paths_combinatorial(n: usize) -> usize {
 
 #[allow(unused)]
 fn lattice_paths_iterative(n: usize) -> usize {
-    let mut ans = vec! {vec! {0; n + 1}; n + 1};
+    let mut ans = vec![vec! {0; n + 1}; n + 1];
 
     for c in 0..=n {
         ans[0][c] = 1;
@@ -31,14 +31,18 @@ fn lattice_paths_iterative(n: usize) -> usize {
 
 #[allow(unused)]
 fn lattice_paths_bfs(n: usize) -> usize {
-    let mut ans = vec! {vec! {0; n + 1}; n + 1};
+    let mut ans = vec![vec! {0; n + 1}; n + 1];
     let mut stack = VecDeque::new();
     stack.push_back((0, 0));
 
     while let Some((r, c)) = stack.pop_front() {
-        if r > n || c > n { continue; }
+        if r > n || c > n {
+            continue;
+        }
         ans[r][c] += 1;
-        if (r, c) == (n, n) { continue; }
+        if (r, c) == (n, n) {
+            continue;
+        }
 
         stack.push_back((r + 1, c)); // down
         stack.push_back((r, c + 1)); // right
@@ -49,7 +53,7 @@ fn lattice_paths_bfs(n: usize) -> usize {
 
 #[cfg(test)]
 mod e15_tests {
-    use crate::e15::{lattice_paths_iterative, lattice_paths_bfs, lattice_paths_combinatorial};
+    use crate::e15::{lattice_paths_bfs, lattice_paths_combinatorial, lattice_paths_iterative};
 
     #[test]
     fn lattice_paths_combinatorial_works() {

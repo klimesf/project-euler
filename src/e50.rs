@@ -7,11 +7,13 @@ pub(crate) fn e50() {
 fn consecutive_prime_sum(below: usize) -> usize {
     let sieve = sieve_of_eratosthenes(below);
 
-    let mut max= 0;
+    let mut max = 0;
     let mut ans = 0;
 
     for i in 2..sieve.len() {
-        if !sieve[i] { continue }
+        if !sieve[i] {
+            continue;
+        }
         let mut sum = i;
         let mut max_prime = i;
         let mut max_consecutive = 1;
@@ -20,10 +22,12 @@ fn consecutive_prime_sum(below: usize) -> usize {
         while sum < below && j < sieve.len() {
             if !sieve[j] {
                 j += 1;
-                continue
+                continue;
             }
             sum += j;
-            if sum >= below { break }
+            if sum >= below {
+                break;
+            }
             if sieve[sum] {
                 max_prime = sum;
                 max_consecutive = consecutive;
@@ -43,7 +47,7 @@ fn consecutive_prime_sum(below: usize) -> usize {
 
 #[cfg(test)]
 mod e50_tests {
-    use crate::e50::{consecutive_prime_sum};
+    use crate::e50::consecutive_prime_sum;
 
     #[test]
     fn consecutive_prime_sum_works() {

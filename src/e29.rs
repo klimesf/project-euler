@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use crate::utils::toolbox::power_big;
+use std::collections::HashSet;
 
 pub(crate) fn e29() {
     println!("{}", distinct_powers())

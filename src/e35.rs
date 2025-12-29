@@ -8,7 +8,9 @@ fn circular_primes(below: usize) -> usize {
     let sieve = sieve_of_eratosthenes(below);
     let mut ans = 0;
     for i in 2..below {
-        if !sieve[i] { continue }
+        if !sieve[i] {
+            continue;
+        }
 
         let mut digs = to_digs(i);
         let mut all_prime = true;
@@ -35,7 +37,7 @@ fn to_usize(n: &Vec<char>) -> usize {
 }
 
 fn to_digs(mut n: usize) -> Vec<char> {
-    let mut ans = vec!();
+    let mut ans = vec![];
     while n > 0 {
         ans.push(char::from_digit((n % 10) as u32, 10).unwrap());
         n /= 10;
@@ -46,7 +48,7 @@ fn to_digs(mut n: usize) -> Vec<char> {
 
 #[cfg(test)]
 mod e35_tests {
-    use crate::e35::{circular_primes};
+    use crate::e35::circular_primes;
 
     #[test]
     fn circular_primes_works() {

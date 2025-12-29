@@ -15,7 +15,9 @@ fn double_base_palindromes(below: usize) -> usize {
 fn is_palindrome(n: String) -> bool {
     let cs: Vec<char> = n.chars().collect();
     for i in 0..cs.len() / 2 {
-        if cs[i] != cs[cs.len() - i - 1] { return false }
+        if cs[i] != cs[cs.len() - i - 1] {
+            return false;
+        }
     }
     true
 }

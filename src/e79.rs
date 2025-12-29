@@ -3,10 +3,7 @@ use std::collections::{HashMap, HashSet};
 use std::fs;
 
 pub(crate) fn e79() {
-    println!(
-        "{}",
-        passcode_derivation(fs::read_to_string("input/e79/input.txt").unwrap())
-    )
+    println!("{}", passcode_derivation(fs::read_to_string("input/e79/input.txt").unwrap()))
 }
 
 fn passcode_derivation(input: String) -> String {
@@ -16,10 +13,7 @@ fn passcode_derivation(input: String) -> String {
         line.chars().tuple_windows().for_each(|(first, second)| {
             vertices.insert(first);
             vertices.insert(second);
-            edges
-                .entry(first)
-                .or_insert_with(HashSet::new)
-                .insert(second);
+            edges.entry(first).or_insert_with(HashSet::new).insert(second);
         });
     });
     topology_sort(&edges, &vertices)
@@ -58,9 +52,6 @@ mod e79_tests {
 
     #[test]
     fn max_path_sum_works() {
-        assert_eq!(
-            "73162890",
-            passcode_derivation(fs::read_to_string("input/e79/test.txt").unwrap())
-        );
+        assert_eq!("73162890", passcode_derivation(fs::read_to_string("input/e79/test.txt").unwrap()));
     }
 }

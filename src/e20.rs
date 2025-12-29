@@ -7,9 +7,9 @@ fn factorial_digit_sum(n: u32) -> u32 {
 }
 
 fn factorial(n: u32) -> Vec<u32> {
-    let mut ans = vec!{ 1 };
+    let mut ans = vec![1];
     for multiplier in 2..=n {
-        let mut new_ans = vec!();
+        let mut new_ans = vec![];
         let mut carryover = 0;
         for i in (0..ans.len()).rev() {
             let dig = ans[i] * multiplier + carryover;

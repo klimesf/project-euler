@@ -7,7 +7,11 @@ pub(crate) fn e22() {
 fn names_scores(input: String) -> usize {
     let mut names: Vec<&str> = input.lines().collect();
     names.sort();
-    names.iter().enumerate().map(|(i, name)| (i + 1) * name_score(name)).sum()
+    names
+        .iter()
+        .enumerate()
+        .map(|(i, name)| (i + 1) * name_score(name))
+        .sum()
 }
 
 fn name_score(s: &str) -> usize {
@@ -16,8 +20,8 @@ fn name_score(s: &str) -> usize {
 
 #[cfg(test)]
 mod e22_tests {
-    use std::fs;
     use crate::e22::{name_score, names_scores};
+    use std::fs;
 
     #[test]
     fn name_score_works() {

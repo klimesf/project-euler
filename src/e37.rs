@@ -10,10 +10,13 @@ fn truncatable_primes() -> usize {
     let mut ans = 0;
     let mut total = 0;
     let mut n = 11; // Do not count 1-digit primes
-    while total <= 10 { // There are only 11 truncatable primes
+    while total <= 10 {
+        // There are only 11 truncatable primes
         n += 1;
 
-        if !sieve[n] { continue; }
+        if !sieve[n] {
+            continue;
+        }
 
         let mut truncatable = true;
         let mut n_div = n;
@@ -49,7 +52,7 @@ fn truncatable_primes() -> usize {
 
 #[cfg(test)]
 mod e37_tests {
-    use crate::e37::{truncatable_primes};
+    use crate::e37::truncatable_primes;
 
     #[test]
     fn truncatable_primes_works() {

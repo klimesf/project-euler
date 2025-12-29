@@ -14,8 +14,16 @@ fn coin_sums() -> usize {
                         for f in 0..=4 {
                             for g in 0..=2 {
                                 for h in 0..=1 {
-                                    if (coins[0] * a + coins[1] * b + coins[2] * c + coins[3] * d
-                                        + coins[4] * e + coins[5] * f + coins[6] * g + coins[7] * h) == 200 {
+                                    if (coins[0] * a
+                                        + coins[1] * b
+                                        + coins[2] * c
+                                        + coins[3] * d
+                                        + coins[4] * e
+                                        + coins[5] * f
+                                        + coins[6] * g
+                                        + coins[7] * h)
+                                        == 200
+                                    {
                                         ans += 1;
                                     }
                                 }
@@ -31,7 +39,7 @@ fn coin_sums() -> usize {
 
 #[cfg(test)]
 mod e31_tests {
-    use crate::e31::{coin_sums};
+    use crate::e31::coin_sums;
 
     #[test]
     fn coin_sums_works() {

@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use itertools::Itertools;
+use std::collections::HashSet;
 
 pub(crate) fn e32() {
     println!("{}", pandigital_products())
@@ -12,9 +12,11 @@ fn pandigital_products() -> u32 {
     let mut process = |va: Vec<char>, vb: Vec<char>| {
         let a = to_u32(&va);
         let b = to_u32(&vb);
-        let mut rem: Vec<char> = digs.iter()
+        let mut rem: Vec<char> = digs
+            .iter()
             .filter(|c| !va.contains(c) && !vb.contains(c))
-            .map(|c| *c).collect();
+            .map(|c| *c)
+            .collect();
         rem.sort();
         let mut prd = to_digs(a * b);
         prd.sort();
@@ -46,7 +48,7 @@ fn to_u32(n: &Vec<char>) -> u32 {
 }
 
 fn to_digs(mut n: u32) -> Vec<char> {
-    let mut ans = vec!();
+    let mut ans = vec![];
     while n > 0 {
         ans.push(char::from_digit(n % 10, 10).unwrap());
         n /= 10;

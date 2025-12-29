@@ -3,8 +3,8 @@ pub(crate) fn e25() {
 }
 
 fn calc(arg: usize) -> usize {
-    let mut prev_prev = vec! { 1 };
-    let mut prev = vec! { 1 };
+    let mut prev_prev = vec![1];
+    let mut prev = vec![1];
     let mut i = 3;
     loop {
         let curr = sum_big(&prev_prev, &prev);
@@ -19,7 +19,7 @@ fn calc(arg: usize) -> usize {
 }
 
 fn sum_big(a: &Vec<usize>, b: &Vec<usize>) -> Vec<usize> {
-    let mut ans = vec!();
+    let mut ans = vec![];
     let mut carryover = 0;
     for i in 0..a.len().max(b.len()) {
         let ai = if i >= a.len() { 0 } else { a[i] };
@@ -48,7 +48,8 @@ mod e25_tests {
         assert_eq!(vec! {0, 1}, sum_big(&vec! {9}, &vec! {1})); // 9 + 1
         assert_eq!(vec! {0, 2}, sum_big(&vec! {9, 1}, &vec! {1})); // 19 + 1
         assert_eq!(vec! {0, 1, 0, 1}, sum_big(&vec! {9, 1}, &vec! {1, 9, 9})); // 19 + 991
-        assert_eq!(vec! {0, 1, 0, 0, 1}, sum_big(&vec! {9, 1}, &vec! {1, 9, 9, 9})); // 19 + 9991
+        assert_eq!(vec! {0, 1, 0, 0, 1}, sum_big(&vec! {9, 1}, &vec! {1, 9, 9, 9}));
+        // 19 + 9991
     }
 
     #[test]

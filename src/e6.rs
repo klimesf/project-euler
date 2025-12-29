@@ -12,7 +12,7 @@ fn sum_square_difference(range: RangeInclusive<usize>) -> usize {
 
 #[cfg(test)]
 mod e6_tests {
-    use crate::e6::{sum_square_difference};
+    use crate::e6::sum_square_difference;
 
     #[test]
     fn sum_square_difference_works() {

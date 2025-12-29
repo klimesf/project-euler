@@ -20,8 +20,8 @@ fn largest_product(input: String, arg: usize) -> u64 {
 
 #[cfg(test)]
 mod e8_tests {
+    use crate::e8::largest_product;
     use std::fs;
-    use crate::e8::{largest_product};
 
     #[test]
     fn calc_works() {

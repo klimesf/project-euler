@@ -3,7 +3,7 @@ pub(crate) fn e21() {
 }
 
 fn amicable_numbers_sum(to: usize) -> usize {
-    let mut d_ans = vec!{ 0; to + 1 };
+    let mut d_ans = vec![0; to + 1];
 
     let mut ans = 0;
     for i in 1..=to {

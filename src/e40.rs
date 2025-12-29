@@ -15,7 +15,7 @@ fn champernowne() -> u32 {
 
 #[cfg(test)]
 mod e40_tests {
-    use crate::e40::{champernowne};
+    use crate::e40::champernowne;
 
     #[test]
     fn champernowne_works() {

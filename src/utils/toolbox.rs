@@ -68,30 +68,33 @@ pub(crate) fn parse_char(g: Option<Match>) -> char {
 
 #[allow(dead_code)]
 pub(crate) fn prime_factors(mut n: u32) -> Vec<u32> {
-    if n == 0 { return vec!() }
+    if n == 0 {
+        return vec![];
+    }
 
-    let mut ans = vec!();
+    let mut ans = vec![];
     while n % 2 == 0 {
         ans.push(2);
         n /= 2;
     }
 
     for i in (3..=(n as f64).sqrt() as u32).step_by(2) {
-        while n % i == 0
-        {
+        while n % i == 0 {
             ans.push(i);
             n /= i;
         }
     }
 
-    if n > 2 { ans.push(n) }
+    if n > 2 {
+        ans.push(n)
+    }
 
     ans
 }
 
 #[allow(dead_code)]
 pub(crate) fn sieve_of_eratosthenes(n: usize) -> Vec<bool> {
-    let mut sieve = vec!{ true; n + 1 };
+    let mut sieve = vec![true; n + 1];
     sieve[0] = false;
     sieve[1] = false;
     for i in 2..=(n as f64).sqrt() as usize {
@@ -113,9 +116,9 @@ pub(crate) fn is_pandigital(n: usize) -> bool {
 
 #[allow(dead_code)]
 pub(crate) fn power_big(n: usize, exponential: usize) -> String {
-    let mut ans = vec!{ 1 };
+    let mut ans = vec![1];
     for _ in 0..exponential {
-        let mut new_ans = vec!();
+        let mut new_ans = vec![];
         let mut carryover = 0;
         for i in (0..ans.len()).rev() {
             let dig = ans[i] * n + carryover;

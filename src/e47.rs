@@ -1,5 +1,5 @@
-use itertools::Itertools;
 use crate::utils::toolbox::prime_factors;
+use itertools::Itertools;
 
 pub(crate) fn e47() {
     println!("{}", calc())
@@ -25,7 +25,7 @@ fn calc() -> usize {
 
 #[cfg(test)]
 mod e47_tests {
-    use crate::e47::{calc};
+    use crate::e47::calc;
 
     #[test]
     fn calc_works() {

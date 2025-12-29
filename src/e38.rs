@@ -10,7 +10,9 @@ fn pandigital_multiples() -> usize {
     for i in 1..100000 {
         let mut sum = i;
         for n in 2..10 {
-            if concatenate(sum, i * n) > 987654321 { break }
+            if concatenate(sum, i * n) > 987654321 {
+                break;
+            }
             sum = concatenate(sum, i * n);
         }
         if i != sum && is_pandigital(sum) && sum > max {

@@ -5,7 +5,7 @@ pub(crate) fn e24() {
 }
 
 fn millionth_lexicographic_permutation() -> i64 {
-    let items = vec!{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    let items = vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     let mut perms: Vec<Vec<&i64>> = items.iter().permutations(items.len()).collect();
     perms.sort();
 
@@ -18,7 +18,7 @@ fn millionth_lexicographic_permutation() -> i64 {
 
 #[cfg(test)]
 mod e24_tests {
-    use crate::e24::{millionth_lexicographic_permutation};
+    use crate::e24::millionth_lexicographic_permutation;
 
     #[test]
     fn millionth_lexicographic_permutation_works() {

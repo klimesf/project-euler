@@ -6,7 +6,9 @@ fn count_sunday_firsts() -> usize {
     let mut date = (1901, 1, 1, 1); // 1 = tuesday
     let mut ans = 0;
     loop {
-        if date.0 == 2000 && date.1 == 12 && date.2 == 31 { break; }
+        if date.0 == 2000 && date.1 == 12 && date.2 == 31 {
+            break;
+        }
 
         let (y, m, d, dow) = date;
 
@@ -57,7 +59,7 @@ fn count_sunday_firsts() -> usize {
 
 #[cfg(test)]
 mod e19_tests {
-    use crate::e19::{count_sunday_firsts};
+    use crate::e19::count_sunday_firsts;
 
     #[test]
     fn count_sunday_firsts_works() {

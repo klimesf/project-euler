@@ -5,12 +5,9 @@ pub(crate) fn e48() {
 }
 
 fn calc() -> String {
-    let mut ans: Vec<u32> = vec!{ 0; 10 };
+    let mut ans: Vec<u32> = vec![0; 10];
     for n in 1..=1000 {
-        let power: Vec<u32> = power_big(n, n)
-            .chars().rev()
-            .map(|c| c.to_digit(10).unwrap())
-            .collect();
+        let power: Vec<u32> = power_big(n, n).chars().rev().map(|c| c.to_digit(10).unwrap()).collect();
 
         let mut carryover = 0;
         for i in 0..10 {
@@ -30,7 +27,7 @@ fn calc() -> String {
 
 #[cfg(test)]
 mod e48_tests {
-    use crate::e48::{calc};
+    use crate::e48::calc;
 
     #[test]
     fn calc_works() {

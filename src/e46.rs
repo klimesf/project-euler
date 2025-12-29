@@ -10,29 +10,37 @@ fn goldbach_odd_conjecture() -> usize {
     let sieve_squares = sieve_of_squares(max_n);
 
     'outer: for n in 4..max_n {
-        if n % 2 != 1 { continue } // Not odd
-        if sieve_eratosthenes[n] { continue } // Not a composite number
+        if n % 2 != 1 {
+            continue;
+        } // Not odd
+        if sieve_eratosthenes[n] {
+            continue;
+        } // Not a composite number
 
         // find sum of a prime and twice a square
         for prime in (2..n).rev() {
-            if !sieve_eratosthenes[prime] { continue } // not a prime
+            if !sieve_eratosthenes[prime] {
+                continue;
+            } // not a prime
 
             for square in (0..n - prime).rev() {
-                if !sieve_squares[square] { continue } // not a square
+                if !sieve_squares[square] {
+                    continue;
+                } // not a square
                 if n == prime + 2 * square {
-                    continue 'outer
+                    continue 'outer;
                 }
             }
         }
 
         // if not found, we got our result
-        return n
+        return n;
     }
     panic!("no luck")
 }
 
 fn sieve_of_squares(n: usize) -> Vec<bool> {
-    let mut sieve = vec!{ false; n + 1 };
+    let mut sieve = vec![false; n + 1];
     for i in 0..=(n as f64).sqrt() as usize {
         sieve[i.pow(2)] = true;
     }
@@ -41,7 +49,7 @@ fn sieve_of_squares(n: usize) -> Vec<bool> {
 
 #[cfg(test)]
 mod e46_tests {
-    use crate::e46::{goldbach_odd_conjecture};
+    use crate::e46::goldbach_odd_conjecture;
 
     #[test]
     fn goldbach_odd_conjecture_works() {

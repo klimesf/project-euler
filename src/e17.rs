@@ -29,7 +29,9 @@ fn number_to_str(n: usize) -> String {
             17 => "seventeen".to_string(),
             18 => "eighteen".to_string(),
             19 => "nineteen".to_string(),
-            _ => { panic!() }
+            _ => {
+                panic!()
+            }
         };
     }
 
@@ -43,8 +45,10 @@ fn number_to_str(n: usize) -> String {
             7 => format!("seventy-{}", number_to_str(n % 10)),
             8 => format!("eighty-{}", number_to_str(n % 10)),
             9 => format!("ninety-{}", number_to_str(n % 10)),
-            _ => { panic!() }
-        }
+            _ => {
+                panic!()
+            }
+        };
     }
 
     if n <= 999 {
@@ -60,8 +64,10 @@ fn number_to_str(n: usize) -> String {
                 7 => "seven hundred".to_string(),
                 8 => "eight hundred".to_string(),
                 9 => "nine hundred".to_string(),
-                _ => { panic!() }
-            }
+                _ => {
+                    panic!()
+                }
+            };
         } else {
             return match n / 100 {
                 1 => format!("one hundred and {}", number_to_str(n % 100)),
@@ -73,13 +79,15 @@ fn number_to_str(n: usize) -> String {
                 7 => format!("seven hundred and {}", number_to_str(n % 100)),
                 8 => format!("eight hundred and {}", number_to_str(n % 100)),
                 9 => format!("nine hundred and {}", number_to_str(n % 100)),
-                _ => { panic!() }
-            }
+                _ => {
+                    panic!()
+                }
+            };
         }
     }
 
     if n == 1000 {
-        return "one thousand".to_string()
+        return "one thousand".to_string();
     }
 
     panic!()

@@ -4,11 +4,15 @@ pub(crate) fn e4() {
 
 fn largest_palindrome(n: usize) -> usize {
     let mut range = 9;
-    for _ in 1..n { range = range * 10 + 9 }
+    for _ in 1..n {
+        range = range * 10 + 9
+    }
     let mut max = 0;
     for i in (1..=range).rev() {
         for j in (i..=range).rev() {
-            if is_palindrome(i * j) { max = max.max(i * j) }
+            if is_palindrome(i * j) {
+                max = max.max(i * j)
+            }
         }
     }
     max
@@ -25,7 +29,7 @@ fn reverse(n: usize) -> usize {
         reversed = reversed * 10 + tmp % 10;
         tmp /= 10;
     }
-    return reversed
+    return reversed;
 }
 
 #[cfg(test)]

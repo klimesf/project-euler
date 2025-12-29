@@ -6,7 +6,8 @@ pub(crate) fn e43() {
 
 fn calc() -> usize {
     let digs = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    digs.iter().permutations(digs.len())
+    digs.iter()
+        .permutations(digs.len())
         .filter(|perm| *perm[0] != '0')
         .filter(|perm| is_substring_divisible(perm))
         .map(|perm| to_usize(&*perm))

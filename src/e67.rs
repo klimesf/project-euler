@@ -5,9 +5,10 @@ pub(crate) fn e67() {
 }
 
 fn max_path_sum(input: String) -> usize {
-    let mut triangle: Vec<Vec<usize>> = input.lines().map(|line| {
-        line.split(" ").map(|s| s.parse::<usize>().unwrap()).collect()
-    }).collect();
+    let mut triangle: Vec<Vec<usize>> = input
+        .lines()
+        .map(|line| line.split(" ").map(|s| s.parse::<usize>().unwrap()).collect())
+        .collect();
 
     // Go from the bottom of the triangle
     // For each pair, add the max to the element above (the one where the path would choose between a and b)
@@ -26,8 +27,8 @@ fn max_path_sum(input: String) -> usize {
 
 #[cfg(test)]
 mod e67_tests {
+    use crate::e67::max_path_sum;
     use std::fs;
-    use crate::e67::{max_path_sum};
 
     #[test]
     fn max_path_sum_works() {

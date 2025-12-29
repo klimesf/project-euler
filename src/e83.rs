@@ -7,9 +7,10 @@ pub(crate) fn e83() {
 }
 
 fn path_sum(input: String) -> usize {
-    let matrix: Vec<Vec<usize>> = input.lines().map(|line| {
-        line.split(",").map(|n| n.parse::<usize>().unwrap()).collect()
-    }).collect();
+    let matrix: Vec<Vec<usize>> = input
+        .lines()
+        .map(|line| line.split(",").map(|n| n.parse::<usize>().unwrap()).collect())
+        .collect();
 
     let mut min = usize::MAX;
     let mut stack = BinaryHeap::new();
@@ -26,16 +27,32 @@ fn path_sum(input: String) -> usize {
         }
 
         if pos.r > 0 {
-            stack.push(Pos { r: pos.r - 1, c: pos.c, sum: total });
+            stack.push(Pos {
+                r: pos.r - 1,
+                c: pos.c,
+                sum: total,
+            });
         }
         if pos.r < matrix.len() - 1 {
-            stack.push(Pos { r: pos.r + 1, c: pos.c, sum: total });
+            stack.push(Pos {
+                r: pos.r + 1,
+                c: pos.c,
+                sum: total,
+            });
         }
         if pos.c > 0 {
-            stack.push(Pos { r: pos.r, c: pos.c - 1, sum: total });
+            stack.push(Pos {
+                r: pos.r,
+                c: pos.c - 1,
+                sum: total,
+            });
         }
         if pos.c < matrix.len() - 1 {
-            stack.push(Pos { r: pos.r, c: pos.c + 1, sum: total });
+            stack.push(Pos {
+                r: pos.r,
+                c: pos.c + 1,
+                sum: total,
+            });
         }
     }
     min
@@ -62,8 +79,8 @@ impl PartialOrd for Pos {
 
 #[cfg(test)]
 mod e83_tests {
+    use crate::e83::path_sum;
     use std::fs;
-    use crate::e83::{path_sum};
 
     #[test]
     fn path_sum_works() {

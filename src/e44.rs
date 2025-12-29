@@ -3,12 +3,14 @@ pub(crate) fn e44() {
 }
 
 fn calc() -> usize {
-    let mut sieve = vec!{ false; 1000000000 };
-    let mut pentagonal = vec!();
+    let mut sieve = vec![false; 1000000000];
+    let mut pentagonal = vec![];
     let mut n = 1;
     loop {
         let pentagonal_n = n * (3 * n - 1) / 2;
-        if pentagonal_n >= sieve.len() { break; }
+        if pentagonal_n >= sieve.len() {
+            break;
+        }
         sieve[pentagonal_n] = true;
         if n < 10000 {
             pentagonal.push(pentagonal_n);
@@ -31,7 +33,7 @@ fn calc() -> usize {
 
 #[cfg(test)]
 mod e44_tests {
-    use crate::e44::{calc};
+    use crate::e44::calc;
 
     #[test]
     fn calc_works() {

@@ -7,9 +7,10 @@ pub(crate) fn e82() {
 }
 
 fn path_sum(input: String) -> usize {
-    let matrix: Vec<Vec<usize>> = input.lines().map(|line| {
-        line.split(",").map(|n| n.parse::<usize>().unwrap()).collect()
-    }).collect();
+    let matrix: Vec<Vec<usize>> = input
+        .lines()
+        .map(|line| line.split(",").map(|n| n.parse::<usize>().unwrap()).collect())
+        .collect();
 
     let mut min = usize::MAX;
     for sr in 0..matrix.len() {
@@ -27,13 +28,25 @@ fn path_sum(input: String) -> usize {
             }
 
             if pos.r > 0 {
-                stack.push(Pos { r: pos.r - 1, c: pos.c, sum: total });
+                stack.push(Pos {
+                    r: pos.r - 1,
+                    c: pos.c,
+                    sum: total,
+                });
             }
             if pos.r < matrix.len() - 1 {
-                stack.push(Pos { r: pos.r + 1, c: pos.c, sum: total });
+                stack.push(Pos {
+                    r: pos.r + 1,
+                    c: pos.c,
+                    sum: total,
+                });
             }
             if pos.c < matrix.len() - 1 {
-                stack.push(Pos { r: pos.r, c: pos.c + 1, sum: total });
+                stack.push(Pos {
+                    r: pos.r,
+                    c: pos.c + 1,
+                    sum: total,
+                });
             }
         }
     }
@@ -61,8 +74,8 @@ impl PartialOrd for Pos {
 
 #[cfg(test)]
 mod e82_tests {
+    use crate::e82::path_sum;
     use std::fs;
-    use crate::e82::{path_sum};
 
     #[test]
     fn path_sum_works() {

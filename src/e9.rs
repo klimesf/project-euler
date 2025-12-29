@@ -7,7 +7,7 @@ fn calc(sum: usize) -> usize {
         for b in a..sum {
             for c in b..sum {
                 if a.pow(2) + b.pow(2) == c.pow(2) && a + b + c == sum {
-                    return a * b * c
+                    return a * b * c;
                 }
             }
         }
@@ -17,7 +17,7 @@ fn calc(sum: usize) -> usize {
 
 #[cfg(test)]
 mod e9_tests {
-    use crate::e9::{calc};
+    use crate::e9::calc;
 
     #[test]
     fn calc_works() {

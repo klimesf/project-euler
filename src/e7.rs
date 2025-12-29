@@ -3,9 +3,11 @@ pub(crate) fn e7() {
 }
 
 fn nth_prime(nth: usize) -> usize {
-    if nth == 1 { return 2 }
+    if nth == 1 {
+        return 2;
+    }
 
-    let mut prev_primes = vec!();
+    let mut prev_primes = vec![];
     let mut ctr = 2;
     let mut i = 3;
     loop {
@@ -17,7 +19,9 @@ fn nth_prime(nth: usize) -> usize {
             }
         }
         if prime {
-            if ctr == nth { return i }
+            if ctr == nth {
+                return i;
+            }
             ctr += 1;
             prev_primes.push(i);
         }
@@ -27,7 +31,7 @@ fn nth_prime(nth: usize) -> usize {
 
 #[cfg(test)]
 mod e7_tests {
-    use crate::e7::{nth_prime};
+    use crate::e7::nth_prime;
 
     #[test]
     fn nth_prime_works() {

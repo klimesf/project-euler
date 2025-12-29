@@ -5,16 +5,19 @@ pub(crate) fn e42() {
 }
 
 fn calc(input: String) -> usize {
-    let mut sieve = vec!{ false; 100000 };
+    let mut sieve = vec![false; 100000];
     let mut n = 1;
     loop {
         let triangle_n = n * (n + 1) / 2;
-        if triangle_n >= sieve.len() { break; }
+        if triangle_n >= sieve.len() {
+            break;
+        }
         sieve[triangle_n] = true;
         n += 1;
     }
 
-    input.lines()
+    input
+        .lines()
         .map(|line| alphabetical_position(line))
         .filter(|ap| sieve[*ap])
         .count()
@@ -31,8 +34,8 @@ fn alphabetical_position(word: &str) -> usize {
 
 #[cfg(test)]
 mod e42_tests {
-    use std::fs;
     use crate::e42::{alphabetical_position, calc};
+    use std::fs;
 
     #[test]
     fn alphabetical_position_works() {

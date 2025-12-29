@@ -27,7 +27,7 @@ fn quadratic_primes() -> i32 {
 
 #[cfg(test)]
 mod e27_tests {
-    use crate::e27::{quadratic_primes};
+    use crate::e27::quadratic_primes;
 
     #[test]
     fn quadratic_primes_works() {

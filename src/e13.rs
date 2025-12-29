@@ -5,12 +5,13 @@ pub(crate) fn e13() {
 }
 
 fn multiply_big(input: String) -> String {
-    let nums: Vec<Vec<u32>> = input.lines().map(|line| {
-        line.chars().map(|c| { c.to_digit(10).unwrap() }).collect()
-    }).collect();
+    let nums: Vec<Vec<u32>> = input
+        .lines()
+        .map(|line| line.chars().map(|c| c.to_digit(10).unwrap()).collect())
+        .collect();
     let num_len = nums[0].len();
 
-    let mut ans = vec!();
+    let mut ans = vec![];
     let mut overflow = 0;
     for i in (0..num_len).rev() {
         let mut sum = overflow;
@@ -36,8 +37,8 @@ fn multiply_big(input: String) -> String {
 
 #[cfg(test)]
 mod e13_tests {
+    use crate::e13::multiply_big;
     use std::fs;
-    use crate::e13::{multiply_big};
 
     #[test]
     fn multiply_big_works() {

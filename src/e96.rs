@@ -5,15 +5,15 @@ pub(crate) fn e96() {
 }
 
 fn calc(input: String) -> u32 {
-    let mut grids = vec!();
-    let mut current_grid = vec!();
+    let mut grids = vec![];
+    let mut current_grid = vec![];
     for line in input.lines() {
         if line.starts_with("Grid") {
             if current_grid.len() > 0 {
                 grids.push(current_grid.clone());
                 current_grid.clear();
             }
-            continue
+            continue;
         }
         let row: Vec<u32> = line.chars().map(|c| c.to_digit(10).unwrap()).collect();
         current_grid.push(row);
@@ -36,8 +36,8 @@ fn solve_sudoku(sudoku: Vec<Vec<u32>>) -> Vec<Vec<u32>> {
 
 #[cfg(test)]
 mod e96_tests {
+    use crate::e96::calc;
     use std::fs;
-    use crate::e96::{calc};
 
     #[test]
     fn calc_works() {

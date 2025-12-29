@@ -5,11 +5,13 @@ pub(crate) fn e26() {
 }
 
 fn longest_decimal_cycle() -> i32 {
-    (1..1000).max_by(|a, b| {
-        let pa = period_len(*a);
-        let pb = period_len(*b);
-        pa.cmp(&pb)
-    }).unwrap()
+    (1..1000)
+        .max_by(|a, b| {
+            let pa = period_len(*a);
+            let pb = period_len(*b);
+            pa.cmp(&pb)
+        })
+        .unwrap()
 }
 
 fn period_len(n: i32) -> i32 {

@@ -8,8 +8,12 @@ fn calc() -> usize {
     let sieve = sieve_of_eratosthenes(7654321);
 
     for i in (0..=7654321).rev() {
-        if !sieve[i] { continue }
-        if is_pandigital(i) { return i }
+        if !sieve[i] {
+            continue;
+        }
+        if is_pandigital(i) {
+            return i;
+        }
     }
     panic!("no pandigital prime found");
 }

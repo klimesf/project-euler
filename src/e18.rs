@@ -5,11 +5,12 @@ pub(crate) fn e18() {
 }
 
 fn max_path_sum(input: String) -> usize {
-    let triangle: Vec<Vec<usize>> = input.lines().map(|line| {
-        line.split(" ").map(|s| s.parse::<usize>().unwrap()).collect()
-    }).collect();
+    let triangle: Vec<Vec<usize>> = input
+        .lines()
+        .map(|line| line.split(" ").map(|s| s.parse::<usize>().unwrap()).collect())
+        .collect();
 
-    let mut stack = vec!();
+    let mut stack = vec![];
     stack.push((0, 0, 0));
 
     let mut max = 0;
@@ -34,8 +35,8 @@ fn max_path_sum(input: String) -> usize {
 
 #[cfg(test)]
 mod e18_tests {
+    use crate::e18::max_path_sum;
     use std::fs;
-    use crate::e18::{max_path_sum};
 
     #[test]
     fn max_path_sum_works() {

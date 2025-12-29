@@ -3,19 +3,21 @@ pub(crate) fn e23() {
 }
 
 fn sum() -> usize {
-    let mut abundant_nums = vec!();
+    let mut abundant_nums = vec![];
     for i in 2..=28123 {
         if is_abundant(i) {
             abundant_nums.push(i);
         }
     }
 
-    let mut sieve = vec! {false; 28124};
+    let mut sieve = vec![false; 28124];
     for i in 0..abundant_nums.len() {
         for j in 0..=i {
             let a = abundant_nums[i];
             let b = abundant_nums[j];
-            if a + b > 28123 { continue; }
+            if a + b > 28123 {
+                continue;
+            }
             sieve[a + b] = true;
         }
     }

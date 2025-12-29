@@ -30,7 +30,7 @@ fn count_solutions(p: usize) -> usize {
 
 #[cfg(test)]
 mod e39_tests {
-    use crate::e39::{integer_right_triangles, count_solutions};
+    use crate::e39::{count_solutions, integer_right_triangles};
 
     #[test]
     fn count_solutions_works() {

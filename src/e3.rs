@@ -9,7 +9,7 @@ fn largest_prime_factor(n: usize) -> usize {
 }
 
 fn prime_factors(mut n: usize) -> Vec<usize> {
-    let mut ans = vec!();
+    let mut ans = vec![];
     while n % 2 == 0 {
         ans.push(2);
         n = n / 2;
@@ -17,7 +17,9 @@ fn prime_factors(mut n: usize) -> Vec<usize> {
 
     let mut i = 3;
     loop {
-        if i * i > n { break; }
+        if i * i > n {
+            break;
+        }
         while n % i == 0 {
             ans.push(i);
             n = n / i;
@@ -25,13 +27,15 @@ fn prime_factors(mut n: usize) -> Vec<usize> {
         i += 2;
     }
 
-    if n > 2 { ans.push(n); }
+    if n > 2 {
+        ans.push(n);
+    }
     ans
 }
 
 #[cfg(test)]
 mod e3_tests {
-    use crate::e3::{largest_prime_factor};
+    use crate::e3::largest_prime_factor;
 
     #[test]
     fn largest_prime_factor_works() {

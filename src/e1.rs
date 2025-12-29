@@ -14,7 +14,7 @@ fn multiples_3_5(below: usize) -> usize {
 
 #[cfg(test)]
 mod e1_tests {
-    use crate::e1::{multiples_3_5};
+    use crate::e1::multiples_3_5;
 
     #[test]
     fn multiples_3_5_works() {

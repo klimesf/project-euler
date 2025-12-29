@@ -1,5 +1,5 @@
-use itertools::Itertools;
 use crate::utils::toolbox::lcm_64;
+use itertools::Itertools;
 
 #[allow(unused)]
 pub(crate) fn e858() {
@@ -12,20 +12,24 @@ fn calc(n: u64) -> i64 {
     let mut ans = 0;
     for k in 0..=nums.len() {
         println!("{}", k);
-        ans += nums.iter().combinations(k).map(|subset| {
-            let mut lcm = 1;
-            for s in subset {
-                lcm = lcm_64(lcm, *s);
-            }
-            lcm
-        }).sum::<i64>()
+        ans += nums
+            .iter()
+            .combinations(k)
+            .map(|subset| {
+                let mut lcm = 1;
+                for s in subset {
+                    lcm = lcm_64(lcm, *s);
+                }
+                lcm
+            })
+            .sum::<i64>()
     }
     ans
 }
 
 #[cfg(test)]
 mod e858_tests {
-    use crate::e858::{calc};
+    use crate::e858::calc;
 
     #[test]
     fn calc_works() {

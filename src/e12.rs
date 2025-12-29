@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use crate::utils::toolbox::prime_factors;
+use std::collections::HashMap;
 
 pub(crate) fn e12() {
     println!("{}", calc(500))
@@ -16,7 +16,9 @@ fn calc(divisor_cnt_over: u32) -> u32 {
             acc
         });
         let divisor_ctr: u32 = prime_factors_pows.values().map(|pow| *pow + 1).product();
-        if divisor_ctr > divisor_cnt_over { return triangular }
+        if divisor_ctr > divisor_cnt_over {
+            return triangular;
+        }
 
         triangular += next;
         next += 1;
@@ -25,7 +27,7 @@ fn calc(divisor_cnt_over: u32) -> u32 {
 
 #[cfg(test)]
 mod e12_tests {
-    use crate::e12::{calc};
+    use crate::e12::calc;
 
     #[test]
     fn calc_works() {

@@ -5,7 +5,9 @@ pub(crate) fn e30() {
 fn digit_fifth_powers() -> usize {
     let mut ans = 0;
     for n in 2..=999999 {
-        if is_digits_fifth_power(n) { ans += n }
+        if is_digits_fifth_power(n) {
+            ans += n
+        }
     }
     ans
 }
@@ -23,7 +25,7 @@ fn is_digits_fifth_power(n: usize) -> bool {
 
 #[cfg(test)]
 mod e30_tests {
-    use crate::e30::{digit_fifth_powers};
+    use crate::e30::digit_fifth_powers;
 
     #[test]
     fn digit_fifth_powers_works() {

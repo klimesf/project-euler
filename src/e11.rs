@@ -5,9 +5,10 @@ pub(crate) fn e11() {
 }
 
 fn calc(input: String) -> u64 {
-    let matrix: Vec<Vec<u64>> = input.lines().map(|line| {
-        line.split(" ").map(|s| s.parse().unwrap()).collect()
-    }).collect();
+    let matrix: Vec<Vec<u64>> = input
+        .lines()
+        .map(|line| line.split(" ").map(|s| s.parse().unwrap()).collect())
+        .collect();
 
     let mut max = 0;
 
@@ -56,8 +57,8 @@ fn calc(input: String) -> u64 {
 
 #[cfg(test)]
 mod e11_tests {
+    use crate::e11::calc;
     use std::fs;
-    use crate::e11::{calc};
 
     #[test]
     fn calc_works() {

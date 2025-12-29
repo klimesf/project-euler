@@ -8,14 +8,16 @@ fn calc(n: usize) -> usize {
     let sieve = sieve_of_eratosthenes(n);
     let mut ans = 0;
     for i in 2..=n {
-        if sieve[i] { ans += i }
+        if sieve[i] {
+            ans += i
+        }
     }
     ans
 }
 
 #[cfg(test)]
 mod e10_tests {
-    use crate::e10::{calc};
+    use crate::e10::calc;
 
     #[test]
     fn calc_works() {
