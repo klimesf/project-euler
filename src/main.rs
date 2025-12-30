@@ -64,6 +64,7 @@ use crate::e83::e83;
 use crate::e9::e9;
 use crate::e92::e92;
 use crate::e96::e96;
+use crate::e97::e97;
 use colored::Colorize;
 use std::env;
 // use crate::e858::e858;
@@ -135,6 +136,7 @@ mod e858;
 mod e9;
 mod e92;
 mod e96;
+mod e97;
 
 mod utils {
     pub mod toolbox;
@@ -474,6 +476,11 @@ fn main() {
     if args.contains(&"all".to_string()) || args.contains(&"e96".to_string()) {
         println!("{}", format!("--- 96:").underline().green());
         measure!(e96());
+    }
+
+    if args.contains(&"all".to_string()) || args.contains(&"e97".to_string()) {
+        println!("{}", format!("--- 97:").underline().green());
+        measure!(e97());
     }
 
     // if args.contains(&"all".to_string()) || args.contains(&"e858".to_string()) {
