@@ -133,6 +133,7 @@ mod e7;
 mod e719;
 mod e79;
 mod e8;
+mod e808;
 mod e81;
 mod e816;
 mod e82;
